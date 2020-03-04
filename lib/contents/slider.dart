@@ -1,6 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_cookbook/githubWidget.dart';
+import 'package:flutter_cookbook/webLauncher.dart';
 
 import 'contentlist.dart';
 
@@ -16,6 +18,9 @@ class SliderDemo implements CookItem {
           title: Text(title),
         ),
         body: _SliderPage(),
+        floatingActionButton: GithubLink(
+          link: "contents/slider.dart",
+        ),
       );
     }));
   }
@@ -38,9 +43,6 @@ class _SliderPageState extends State<_SliderPage> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        SizedBox(
-          height: 30,
-        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[

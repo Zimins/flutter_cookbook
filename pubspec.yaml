@@ -26,6 +26,8 @@ dependencies:
   url_launcher: ^5.4.2
   package_info: ^0.4.0+14
   image_picker: ^0.6.3+4
+  flutter_material_color_picker: ^1.0.5
+
 
 dev_dependencies:
   flutter_test:

@@ -6,6 +6,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_cookbook/contents/contentlist.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../githubWidget.dart';
+
 class ImageDemo extends CookItem {
   @override
   String title = "Image 🖼️";
@@ -31,6 +33,9 @@ class _ImagePageState extends State<ImagePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Various Images"),
+      ),
+      floatingActionButton: GithubLink(
+        link: "contents/image.dart",
       ),
       body: SingleChildScrollView(
         child: Column(

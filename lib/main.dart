@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cookbook/contents/contentlist.dart';
 import 'package:flutter_cookbook/contents/image.dart';
-import 'package:flutter_cookbook/contents/toast.dart';
+import 'package:flutter_cookbook/contents/snackbar.dart';
+import 'package:flutter_cookbook/webLauncher.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'contents/slider.dart';
@@ -42,7 +43,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<CookItem> cooks = [SliderDemo(), ImageDemo(), Toast()];
+  final List<CookItem> cooks = [SliderDemo(), ImageDemo(), SnacbarDemo()];
 
   @override
   Widget build(BuildContext context) {
@@ -98,13 +99,8 @@ class ListFooter extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () async {
-              const url =
-                  'https://www.github.com/wlals822/flutter_cookbook/issues';
-              if (await canLaunch(url)) {
-                await launch(url);
-              } else {
-                throw 'Could not launch $url';
-              }
+              await showBrowser(
+                  "https://www.github.com/wlals822/flutter_cookbook");
             },
             child: Text(
               "or request by github",
