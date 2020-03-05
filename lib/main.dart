@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cookbook/contents/contentlist.dart';
 import 'package:flutter_cookbook/contents/dialogShowcase.dart';
 import 'package:flutter_cookbook/contents/image.dart';
+import 'package:flutter_cookbook/contents/placeholder.dart';
 import 'package:flutter_cookbook/contents/snackbar.dart';
 import 'package:flutter_cookbook/webLauncher.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -48,7 +49,8 @@ class _MyHomePageState extends State<MyHomePage> {
     SliderDemo(),
     ImageDemo(),
     SnacbarDemo(),
-    AlertDialogDemo()
+    AlertDialogDemo(),
+    PlaceHolderDemo()
   ];
 
   @override
