@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cookbook/contents/contentlist.dart';
+import 'package:flutter_cookbook/contents/dialogShowcase.dart';
 import 'package:flutter_cookbook/contents/image.dart';
 import 'package:flutter_cookbook/contents/snackbar.dart';
 import 'package:flutter_cookbook/webLauncher.dart';
@@ -43,7 +44,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<CookItem> cooks = [SliderDemo(), ImageDemo(), SnacbarDemo()];
+  final List<CookItem> cooks = [
+    SliderDemo(),
+    ImageDemo(),
+    SnacbarDemo(),
+    AlertDialogDemo()
+  ];
 
   @override
   Widget build(BuildContext context) {
