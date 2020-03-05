@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cookbook/contents/contentlist.dart';
+import 'package:flutter_cookbook/githubWidget.dart';
 
 class AlertDialogDemo implements CookItem {
   @override
@@ -20,6 +21,9 @@ class _AlertDialogShowcase extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Try alert Dialog"),
+      ),
+      floatingActionButton: GithubLink(
+        link: "contents/dialogShowcase.dart",
       ),
       body: Container(
           alignment: Alignment.center,
