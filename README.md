@@ -2,7 +2,7 @@
 
 Flutter cookbook app
 
-- [main image](cookbookGrapic.png)
+- ![main image](cookbookGrapic.png)
 
 
 ### Loves feedback!
@@ -10,5 +10,5 @@ Flutter cookbook app
 * Please request new feaure by issue or email.
 * Add new demo by yourself by fork & pull request.
 
-- [appMain](cookbook_main.jpeg)
+- ![appMain](cookbook_main.jpeg)
 
