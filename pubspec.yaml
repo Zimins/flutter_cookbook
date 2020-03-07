@@ -28,10 +28,19 @@ dependencies:
   image_picker: ^0.6.3+4
   flutter_material_color_picker: ^1.0.5
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.7.3"
+
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/launcher/fullicon.png"
+  image_path_ios: "assets/launcher/fullicon.png"
+  adaptive_icon_foreground: "assets/launcher/cookbook_foreground.png"
+  adaptive_icon_background: "assets/launcher/cookbook_background.png"
 
 
 # For information on the generic Dart part of this file, see the

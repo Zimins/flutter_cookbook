@@ -5,6 +5,7 @@ import 'package:flutter_cookbook/contents/dialogShowcase.dart';
 import 'package:flutter_cookbook/contents/image.dart';
 import 'package:flutter_cookbook/contents/placeholder.dart';
 import 'package:flutter_cookbook/contents/snackbar.dart';
+import 'package:flutter_cookbook/contents/texts.dart';
 import 'package:flutter_cookbook/webLauncher.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -47,6 +48,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<CookItem> cooks = [
+    TextDemo(),
     ButtonsDemo(),
     SliderDemo(),
     ImageDemo(),
@@ -60,22 +62,26 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: Container(
           color: Color.fromARGB(255, 15, 76, 129),
-          padding: EdgeInsets.only(left: 20, right: 20),
           child: ListView.builder(
               itemCount: cooks.length + 2,
               itemBuilder: (context, index) {
                 if (index == 0) {
-                  return ListTitle();
+                  return Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: ListTitle(),
+                  );
                 } else if (index == cooks.length + 1) {
-                  return ListFooter();
+                  return Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: ListFooter(),
+                  );
                 } else {
-                  return CookContent(item: cooks[index - 1]);
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                    child: CookContent(item: cooks[index - 1]),
+                  );
                 }
               })),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
@@ -101,23 +107,26 @@ class ListFooter extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(top: 20),
       alignment: Alignment.center,
-      child: Column(
-        children: <Widget>[
-          Text(
-            "🔨Working Now!✏️",
-            style: Theme.of(context).textTheme.display1,
-          ),
-          GestureDetector(
-            onTap: () async {
-              await showBrowser(
-                  "https://www.github.com/wlals822/flutter_cookbook");
-            },
-            child: Text(
-              "or request by github",
-              style: Theme.of(context).textTheme.subtitle,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 30),
+        child: Column(
+          children: <Widget>[
+            Text(
+              "🔨Working Now!✏️",
+              style: Theme.of(context).textTheme.display1,
             ),
-          )
-        ],
+            GestureDetector(
+              onTap: () async {
+                await showBrowser(
+                    "https://www.github.com/wlals822/flutter_cookbook");
+              },
+              child: Text(
+                "or request by github",
+                style: Theme.of(context).textTheme.subtitle,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
