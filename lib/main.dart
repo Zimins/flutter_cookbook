@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cookbook/contents/bottomSheet.dart';
 import 'package:flutter_cookbook/contents/buttons.dart';
 import 'package:flutter_cookbook/contents/contentlist.dart';
 import 'package:flutter_cookbook/contents/dialogShowcase.dart';
@@ -54,6 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ImageDemo(),
     SnacbarDemo(),
     AlertDialogDemo(),
+    BottomSheetDemo(),
     PlaceHolderDemo()
   ];
 
