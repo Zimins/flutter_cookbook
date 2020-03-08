@@ -1,4 +1,4 @@
-# flutter_cookbook
+# Flutter Cookbook
 
 Flutter cookbook app
 
