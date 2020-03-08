@@ -30,6 +30,10 @@
 .pub/
 /build/
 
+# For release
+/flutter_cookbook_android/key.properties
+/flutter_cookbook_android/app/zapps_key.jks
+
 # Web related
 lib/generated_plugin_registrant.dart
 
