@@ -6,6 +6,7 @@ import 'package:flutter_cookbook/contents/dialogShowcase.dart';
 import 'package:flutter_cookbook/contents/image.dart';
 import 'package:flutter_cookbook/contents/placeholder.dart';
 import 'package:flutter_cookbook/contents/snackbar.dart';
+import 'package:flutter_cookbook/contents/stepper.dart';
 import 'package:flutter_cookbook/contents/texts.dart';
 import 'package:flutter_cookbook/webLauncher.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -56,6 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
     SnacbarDemo(),
     AlertDialogDemo(),
     BottomSheetDemo(),
+    StepperDemo(),
     PlaceHolderDemo()
   ];
 
