@@ -163,4 +163,3 @@ class __AnimationsPageState extends State<_AnimationsPage>
     super.dispose();
   }
 }
-
