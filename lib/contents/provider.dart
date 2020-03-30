@@ -63,7 +63,7 @@ class _ProviderPage extends StatelessWidget {
                         child: Stack(
                           alignment: Alignment.center,
                           children: <Widget>[
-                            RandomWordContainer(),
+                            RandomWordContainer(words),
                             LoadingIndicator(),
                           ],
                         ),
