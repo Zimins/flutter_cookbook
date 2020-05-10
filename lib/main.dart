@@ -6,13 +6,13 @@ import 'package:flutter_cookbook/contents/buttons.dart';
 import 'package:flutter_cookbook/contents/contentlist.dart';
 import 'package:flutter_cookbook/contents/dialogShowcase.dart';
 import 'package:flutter_cookbook/contents/image.dart';
+import 'package:flutter_cookbook/contents/navigationRail.dart';
 import 'package:flutter_cookbook/contents/placeholder.dart';
 import 'package:flutter_cookbook/contents/provider.dart';
 import 'package:flutter_cookbook/contents/snackbar.dart';
 import 'package:flutter_cookbook/contents/stepper.dart';
 import 'package:flutter_cookbook/contents/texts.dart';
 import 'package:flutter_cookbook/webLauncher.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import 'contents/slider.dart';
 
@@ -60,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ImageDemo(),
     SnacbarDemo(),
     AlertDialogDemo(),
+    NavigationRailDemo(),
     BottomSheetDemo(),
     BottomNavbarDemo(),
     StepperDemo(),
