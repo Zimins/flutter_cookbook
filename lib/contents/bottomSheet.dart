@@ -6,7 +6,7 @@ import 'package:flutter_cookbook/mockData.dart';
 
 class BottomSheetDemo extends CookItem {
   @override
-  String title = "Bottom Sheet";
+  String title = "Bottom Sheet 📰";
 
   @override
   void onSelect(BuildContext context) {

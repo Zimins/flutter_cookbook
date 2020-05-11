@@ -7,7 +7,7 @@ import 'package:flutter_material_color_picker/flutter_material_color_picker.dart
 
 class SnacbarDemo implements CookItem {
   @override
-  String title = "Snackbar";
+  String title = "Snackbar 🍪";
 
   @override
   void onSelect(BuildContext context) {

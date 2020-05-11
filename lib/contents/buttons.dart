@@ -5,7 +5,7 @@ import 'package:flutter_cookbook/githubWidget.dart';
 
 class ButtonsDemo implements CookItem {
   @override
-  String title = "Buttons";
+  String title = "Buttons 🆗";
 
   @override
   void onSelect(BuildContext context) {

@@ -5,7 +5,7 @@ import 'package:flutter_cookbook/githubWidget.dart';
 
 class PlaceHolderDemo implements CookItem {
   @override
-  String title = "PlaceHolder";
+  String title = "PlaceHolder 🗒️";
 
   @override
   void onSelect(BuildContext context) {

@@ -11,7 +11,7 @@ import 'contentlist.dart';
 
 class ProviderDemo implements CookItem {
   @override
-  String title = "Provider";
+  String title = "Provider 🕺";
 
   @override
   void onSelect(BuildContext context) {

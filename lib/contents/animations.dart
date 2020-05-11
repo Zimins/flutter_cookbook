@@ -5,7 +5,7 @@ import 'package:flutter_cookbook/githubWidget.dart';
 
 class AnimationsDemo implements CookItem {
   @override
-  String title = "Animations";
+  String title = "Animations 📺";
 
   @override
   void onSelect(BuildContext context) {

@@ -5,7 +5,7 @@ import 'package:flutter_cookbook/githubWidget.dart';
 
 class AlertDialogDemo implements CookItem {
   @override
-  String title = "AlertDialog";
+  String title = "AlertDialog ⚠️";
 
   @override
   void onSelect(BuildContext context) {

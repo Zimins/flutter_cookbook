@@ -8,7 +8,7 @@ import 'contentlist.dart';
 
 class SliderDemo implements CookItem {
   @override
-  String title = "Slider";
+  String title = "Slider 🎚️";
 
   @override
   void onSelect(BuildContext context) {

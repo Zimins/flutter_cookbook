@@ -5,7 +5,7 @@ import 'package:flutter_cookbook/githubWidget.dart';
 
 class NavigationRailDemo implements CookItem {
   @override
-  String title = "NavigationRail";
+  String title = "Navigation Rail 🚊";
 
   @override
   void onSelect(BuildContext context) {

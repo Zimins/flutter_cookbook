@@ -4,9 +4,11 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_cookbook/contents/contentlist.dart';
 import 'package:flutter_cookbook/mockData.dart';
 
+import '../githubWidget.dart';
+
 class TextDemo implements CookItem {
   @override
-  String title = "Text";
+  String title = "Text 🆎";
 
   @override
   void onSelect(BuildContext context) {
@@ -22,6 +24,9 @@ class _TextsDemoPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Texts"),
+      ),
+      floatingActionButton: GithubLink(
+        link: "contents/texts.dart",
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

@@ -5,7 +5,7 @@ import 'package:flutter_cookbook/githubWidget.dart';
 
 class StepperDemo implements CookItem {
   @override
-  String title = "Stepper";
+  String title = "Stepper 👣";
 
   @override
   void onSelect(BuildContext context) {
