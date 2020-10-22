@@ -4,6 +4,7 @@ import 'package:flutter_cookbook/contents/bottomNavbar.dart';
 import 'package:flutter_cookbook/contents/bottomSheet.dart';
 import 'package:flutter_cookbook/contents/buttons.dart';
 import 'package:flutter_cookbook/contents/contentlist.dart';
+import 'package:flutter_cookbook/contents/cupertino/CupertinoButtonDemo.dart';
 import 'package:flutter_cookbook/contents/dialogShowcase.dart';
 import 'package:flutter_cookbook/contents/image.dart';
 import 'package:flutter_cookbook/contents/navigationRail.dart';
@@ -44,6 +45,41 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int tabIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+          color: Color.fromARGB(255, 15, 76, 129),
+          child: tabIndex == 0 ? MaterialList() : CupertinoList()),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (position) {
+          setState(() {
+            tabIndex = position;
+          });
+        },
+        currentIndex: tabIndex,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.accessibility),
+            title: Text("Material"),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.apps),
+            title: Text("Cupertio"),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings_applications),
+            title: Text("About"),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class MaterialList extends StatelessWidget {
   final List<CookItem> cooks = [
     TextDemo(),
     ButtonsDemo(),
@@ -62,30 +98,57 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-          color: Color.fromARGB(255, 15, 76, 129),
-          child: ListView.builder(
-              itemCount: cooks.length + 2,
-              itemBuilder: (context, index) {
-                if (index == 0) {
-                  return Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: ListTitle(),
-                  );
-                } else if (index == cooks.length + 1) {
-                  return Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: ListFooter(),
-                  );
-                } else {
-                  return Padding(
-                    padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-                    child: CookContent(item: cooks[index - 1]),
-                  );
-                }
-              })),
-    );
+    return ListView.builder(
+        itemCount: cooks.length + 2,
+        itemBuilder: (context, index) {
+          if (index == 0) {
+            return Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ListTitle(),
+            );
+          } else if (index == cooks.length + 1) {
+            return Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ListFooter(),
+            );
+          } else {
+            return Padding(
+              padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+              child: CookContent(item: cooks[index - 1]),
+            );
+          }
+        });
+  }
+}
+
+class CupertinoList extends StatelessWidget {
+  final List<CookItem> cooks = [
+    CupertinoActionSheetItem(),
+    // ButtonsDemo(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: cooks.length + 2,
+        itemBuilder: (context, index) {
+          if (index == 0) {
+            return Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ListTitle(),
+            );
+          } else if (index == cooks.length + 1) {
+            return Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ListFooter(),
+            );
+          } else {
+            return Padding(
+              padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+              child: CookContent(item: cooks[index - 1]),
+            );
+          }
+        });
   }
 }
 
