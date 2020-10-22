@@ -56,7 +56,21 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: BottomNavigationBar(
         onTap: (position) {
           setState(() {
-            tabIndex = position;
+            if (position == 2) {
+              showAboutDialog(
+                  context: context,
+                  applicationName: "Flutter Cookbook",
+                  applicationVersion: "1.0.6",
+                  applicationLegalese: "Project for flutter learners",
+                  children: [
+                    OutlineButton(
+                      child: Text("Donate by Ads"),
+                      onPressed: () {},
+                    )
+                  ]);
+            } else {
+              tabIndex = position;
+            }
           });
         },
         currentIndex: tabIndex,
