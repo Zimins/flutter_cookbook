@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cookbook/contents/animations.dart';
 import 'package:flutter_cookbook/contents/bottomNavbar.dart';
@@ -18,7 +21,20 @@ import 'package:flutter_cookbook/webLauncher.dart';
 import 'contents/navigationRail.dart';
 import 'contents/slider.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Admob.initialize();
+  runApp(MyApp());
+}
+
+String getInterstitialAdUnitId() {
+  if (Platform.isIOS) {
+    return null;
+  } else if (Platform.isAndroid) {
+    return 'ca-app-pub-6763874036478749~6108629695';
+  }
+  return null;
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -47,6 +63,15 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int tabIndex = 0;
 
+  AdmobInterstitial interstitialAd;
+
+  @override
+  void initState() {
+    super.initState();
+    interstitialAd = AdmobInterstitial(adUnitId: getInterstitialAdUnitId());
+    interstitialAd.load();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +90,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     OutlineButton(
                       child: Text("Donate by Ads"),
-                      onPressed: () {},
+                      onPressed: () {
+                        interstitialAd.show();
+                      },
                     )
                   ]);
             } else {

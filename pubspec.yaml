@@ -29,6 +29,7 @@ dependencies:
   flutter_material_color_picker: ^1.0.5
   provider: ^4.0.4
   http: ^0.12.0+4
+  admob_flutter: ^1.0.0
 
 dev_dependencies:
   flutter_test:
