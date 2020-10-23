@@ -14,3 +14,8 @@ jobs:
           flutter-version: '1.22.2'
       - run: flutter pub get
       - run: flutter build apk --debug --split-per-abi
+      - name: Save apk
+        uses: actions/upload-artifact@v2
+        with:
+          name: Flutter apk
+          path: build/app/outputs/flutter-apk/app-release.apk
