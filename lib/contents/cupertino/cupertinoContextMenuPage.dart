@@ -3,7 +3,7 @@ import 'package:flutter_cookbook/contents/contentlist.dart';
 
 class CupertinoContextMenuDemo extends CookItem {
   @override
-  String get title => "Context menu";
+  String get title => "Context menu 📚";
 
   @override
   void onSelect(BuildContext context) {
