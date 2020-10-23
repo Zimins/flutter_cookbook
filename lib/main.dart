@@ -8,6 +8,7 @@ import 'package:flutter_cookbook/contents/bottomSheet.dart';
 import 'package:flutter_cookbook/contents/buttons.dart';
 import 'package:flutter_cookbook/contents/contentlist.dart';
 import 'package:flutter_cookbook/contents/cupertino/CupertinoButtonDemo.dart';
+import 'package:flutter_cookbook/contents/cupertino/cupertinoContextMenuPage.dart';
 import 'package:flutter_cookbook/contents/dialogShowcase.dart';
 import 'package:flutter_cookbook/contents/image.dart';
 import 'package:flutter_cookbook/contents/navigationRail.dart';
@@ -165,7 +166,7 @@ class MaterialList extends StatelessWidget {
 class CupertinoList extends StatelessWidget {
   final List<CookItem> cooks = [
     CupertinoActionSheetItem(),
-    // ButtonsDemo(),
+    CupertinoContextMenuDemo()
   ];
 
   @override
