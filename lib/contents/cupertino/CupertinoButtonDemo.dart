@@ -6,7 +6,7 @@ import '../../webLauncher.dart';
 
 class CupertinoActionSheetItem extends CookItem {
   @override
-  String get title => "Action Sheet";
+  String get title => "Action Sheet📝";
   @override
   void onSelect(BuildContext context) {
     Navigator.push(context, CupertinoPageRoute(builder: (context) {
