@@ -166,7 +166,9 @@ class MaterialList extends StatelessWidget {
 class CupertinoList extends StatelessWidget {
   final List<CookItem> cooks = [
     CupertinoActionSheetItem(),
-    CupertinoContextMenuDemo()
+    CupertinoContextMenuDemo(),
+    CupertinoActionSheetItem(),
+    CupertinoContextMenuDemo(),
   ];
 
   @override
