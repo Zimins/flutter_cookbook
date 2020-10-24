@@ -25,7 +25,7 @@ jobs:
       - name: Generate keystore
         uses: timheuer/base64-to-file@v1
         with:
-          fileName: './android/app/zapps_key.jks'
+          fileName: 'zapps_key.jks'
           encodedString: ${{secrets.KEY_JKS}}
       - name: move files
         run: |
