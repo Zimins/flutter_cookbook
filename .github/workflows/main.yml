@@ -18,7 +18,9 @@ jobs:
         with:
           fileName: 'key.properties'
           encodedString: ${{secrets.ANDROID_BUILD_PROPERTIES}}
-      - name: Some other step
+      - name: pwd
+        run: pwd
+      - name: properties path
         run: echo ${{ steps.properties.outputs.filePath }}
       - name: Generate keystore
         uses: timheuer/base64-to-file@v1
