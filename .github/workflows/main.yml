@@ -54,7 +54,7 @@ jobs:
   release:
     name: Release AAB to dev track
     needs: build
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Download appbundle from github
