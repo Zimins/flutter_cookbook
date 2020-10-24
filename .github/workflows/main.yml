@@ -13,10 +13,13 @@ jobs:
         with:
           java-version: '12.x'
       - name: Generate properties
+        id: properties
         uses: timheuer/base64-to-file@v1
         with:
           fileName: 'key.properties'
           encodedString: ${{secrets.ANDROID_BUILD_PROPERTIES}}
+      - name: Some other step
+        run: echo ${{ steps.properties.outputs.filePath }}
       - name: Generate keystore
         uses: timheuer/base64-to-file@v1
         with:
