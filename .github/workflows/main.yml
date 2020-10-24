@@ -14,13 +14,14 @@ jobs:
           java-version: '12.x'
       - name: Generate properties
         uses: timheuer/base64-to-file@v1
-        working-directory: ./android
         with:
           fileName: 'key.properties'
           encodedString: ${{secrets.ANDROID_BUILD_PROPERTIES}}
+      - name: Display the path
+        run: ls
+        shell: bash
       - name: Generate keystore
         uses: timheuer/base64-to-file@v1
-        working-directory: ./android/app
         with:
           fileName: 'zapps_key.jks'
           encodedString: ${{secrets.KEY_JKS}}
