@@ -17,14 +17,17 @@ jobs:
         with:
           fileName: 'key.properties'
           encodedString: ${{secrets.ANDROID_BUILD_PROPERTIES}}
-      - name: Display the path
-        run: ls
-        shell: bash
       - name: Generate keystore
         uses: timheuer/base64-to-file@v1
         with:
           fileName: 'zapps_key.jks'
           encodedString: ${{secrets.KEY_JKS}}
+      - name: find files
+        run: |
+          cd android
+          ls
+          cd app
+          ls
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: '1.22.2'
