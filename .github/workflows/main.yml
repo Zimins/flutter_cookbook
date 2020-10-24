@@ -5,7 +5,7 @@ on:
 name: Build
 jobs:
   build:
-    name: Build Apk
+    name: Build AAB
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -15,10 +15,31 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: '1.22.2'
+        env:
+          KEY_JKS: ${{secrets.KEY_JKS}}
+          KEY_PASSWORD: ${{secrets.KEY_PASSWORD}}
+          ALIAS_PASSWORD: ${{secrets.KEY_ALIAS}}
       - run: flutter pub get
-      - run: flutter build apk --debug
+      - run: flutter build appbundle
       - name: Save apk
         uses: actions/upload-artifact@v2
         with:
-          name: Flutter apk
-          path: build/app/outputs/flutter-apk/app-debug.apk
+          name: App bundle
+          path: build/app/outputs/bundle/release/app-release.aab
+  release:
+    name: Release AAB to dev track
+    needs: build
+    runs-on: ubuntu-lastest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Download appbundle from github
+        uses: actions/download-artifact@v2
+        with:
+          name: App bundle
+      - name: Upload aab to Playstore
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{secerts.KEY_ACCOUNT_JSON}}
+          packageName: com.zapps.flutter_cookbook
+          releaseFile: app-release.aab
+          track: dev
