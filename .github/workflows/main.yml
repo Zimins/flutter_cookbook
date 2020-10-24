@@ -27,6 +27,10 @@ jobs:
         with:
           fileName: './android/app/zapps_key.jks'
           encodedString: ${{secrets.KEY_JKS}}
+      - name: move files
+        run: |
+          mv /home/runner/work/_temp/key.properties ./android/key.properties
+          mv /home/runner/work/_temp/zapps_key.jks ./android/app/zapps_key.jks
       - name: ls current
         run: ls
         shell: bash
