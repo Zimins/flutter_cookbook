@@ -39,7 +39,7 @@ jobs:
       - name: Upload aab to Playstore
         uses: r0adkll/upload-google-play@v1
         with:
-          serviceAccountJsonPlainText: ${{secerts.KEY_ACCOUNT_JSON}}
+          serviceAccountJsonPlainText: ${{secrets.KEY_ACCOUNT_JSON}}
           packageName: com.zapps.flutter_cookbook
           releaseFile: app-release.aab
           track: dev
