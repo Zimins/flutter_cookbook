@@ -15,19 +15,23 @@ jobs:
       - name: Generate properties
         uses: timheuer/base64-to-file@v1
         with:
-          fileName: 'key.properties'
+          fileName: './android/key.properties'
           encodedString: ${{secrets.ANDROID_BUILD_PROPERTIES}}
       - name: Generate keystore
         uses: timheuer/base64-to-file@v1
         with:
-          fileName: 'zapps_key.jks'
+          fileName: './android/app/zapps_key.jks'
           encodedString: ${{secrets.KEY_JKS}}
+      - name: ls current
+        run: ls
+        shell: bash
       - name: find files
         run: |
           cd android
           ls
           cd app
           ls
+        shell: bash
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: '1.22.2'
