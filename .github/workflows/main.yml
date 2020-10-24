@@ -53,4 +53,3 @@ jobs:
           serviceAccountJsonPlainText: ${{secrets.KEY_ACCOUNT_JSON}}
           packageName: com.zapps.flutter_cookbook
           releaseFile: app-release.aab
-          track: alpha
