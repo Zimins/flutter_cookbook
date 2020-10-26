@@ -32,7 +32,7 @@ String getInterstitialAdUnitId() {
   if (Platform.isIOS) {
     return null;
   } else if (Platform.isAndroid) {
-    return 'ca-app-pub-6763874036478749~6108629695';
+    return 'ca-app-pub-6763874036478749/3091244805';
   }
   return null;
 }
