@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "765696107779",
+    "firebase_url": "https://flutter-cookbook-85186.firebaseio.com",
+    "project_id": "flutter-cookbook-85186",
+    "storage_bucket": "flutter-cookbook-85186.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:765696107779:android:571b041b8eb1910ccff536",
+        "android_client_info": {
+          "package_name": "com.zapps.flutter_cookbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "765696107779-falpohuh96i239rqpikn7f4ojg4ul5ps.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrxawBEzeHjXIw3yq9QVPu09ZcVI-yeXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "765696107779-falpohuh96i239rqpikn7f4ojg4ul5ps.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

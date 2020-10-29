@@ -1,0 +1,55 @@
+on:
+  push:
+    branches:
+      - master
+name: Build
+jobs:
+  build:
+    name: Build AAB
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - name: Generate properties
+        id: properties
+        uses: timheuer/base64-to-file@v1
+        with:
+          fileName: 'key.properties'
+          encodedString: ${{secrets.ANDROID_BUILD_PROPERTIES}}
+      - name: Generate keystore
+        uses: timheuer/base64-to-file@v1
+        with:
+          fileName: 'zapps_key.jks'
+          encodedString: ${{secrets.KEY_JKS}}
+      - name: move files
+        run: |
+          mv /home/runner/work/_temp/key.properties ./android/key.properties
+          mv /home/runner/work/_temp/zapps_key.jks ./android/app/zapps_key.jks
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '1.22.2'
+      - run: flutter pub get
+      - run: flutter build appbundle
+      - name: Save App bundle in artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: App bundle
+          path: build/app/outputs/bundle/release/app-release.aab
+  release:
+    name: Release AAB to dev track
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Download appbundle from github
+        uses: actions/download-artifact@v2
+        with:
+          name: App bundle
+      - name: Upload aab to Playstore
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{secrets.KEY_ACCOUNT_JSON}}
+          packageName: com.zapps.flutter_cookbook
+          releaseFile: app-release.aab

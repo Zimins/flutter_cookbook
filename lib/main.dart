@@ -1,9 +1,14 @@
+import 'dart:io';
+
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cookbook/contents/animations.dart';
 import 'package:flutter_cookbook/contents/bottomNavbar.dart';
 import 'package:flutter_cookbook/contents/bottomSheet.dart';
 import 'package:flutter_cookbook/contents/buttons.dart';
 import 'package:flutter_cookbook/contents/contentlist.dart';
+import 'package:flutter_cookbook/contents/cupertino/CupertinoButtonDemo.dart';
+import 'package:flutter_cookbook/contents/cupertino/cupertinoContextMenuPage.dart';
 import 'package:flutter_cookbook/contents/dialogShowcase.dart';
 import 'package:flutter_cookbook/contents/image.dart';
 import 'package:flutter_cookbook/contents/navigationRail.dart';
@@ -17,7 +22,20 @@ import 'package:flutter_cookbook/webLauncher.dart';
 import 'contents/navigationRail.dart';
 import 'contents/slider.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Admob.initialize();
+  runApp(MyApp());
+}
+
+String getInterstitialAdUnitId() {
+  if (Platform.isIOS) {
+    return null;
+  } else if (Platform.isAndroid) {
+    return 'ca-app-pub-6763874036478749/3091244805';
+  }
+  return null;
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -44,6 +62,66 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int tabIndex = 0;
+
+  AdmobInterstitial interstitialAd;
+
+  @override
+  void initState() {
+    super.initState();
+    interstitialAd = AdmobInterstitial(adUnitId: getInterstitialAdUnitId());
+    interstitialAd.load();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+          color: Color.fromARGB(255, 15, 76, 129),
+          child: tabIndex == 0 ? MaterialList() : CupertinoList()),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (position) {
+          setState(() {
+            if (position == 2) {
+              showAboutDialog(
+                  context: context,
+                  applicationName: "Flutter Cookbook",
+                  applicationVersion: "1.0.6",
+                  applicationLegalese: "Project for flutter learners",
+                  children: [
+                    OutlineButton(
+                      child: Text("Donate by Ads"),
+                      onPressed: () {
+                        interstitialAd.show();
+                      },
+                    )
+                  ]);
+            } else {
+              tabIndex = position;
+            }
+          });
+        },
+        currentIndex: tabIndex,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.accessibility),
+            title: Text("Material"),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.apps),
+            title: Text("Cupertio"),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings_applications),
+            title: Text("About"),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class MaterialList extends StatelessWidget {
   final List<CookItem> cooks = [
     TextDemo(),
     ButtonsDemo(),
@@ -62,30 +140,57 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-          color: Color.fromARGB(255, 15, 76, 129),
-          child: ListView.builder(
-              itemCount: cooks.length + 2,
-              itemBuilder: (context, index) {
-                if (index == 0) {
-                  return Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: ListTitle(),
-                  );
-                } else if (index == cooks.length + 1) {
-                  return Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: ListFooter(),
-                  );
-                } else {
-                  return Padding(
-                    padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-                    child: CookContent(item: cooks[index - 1]),
-                  );
-                }
-              })),
-    );
+    return ListView.builder(
+        itemCount: cooks.length + 2,
+        itemBuilder: (context, index) {
+          if (index == 0) {
+            return Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ListTitle(),
+            );
+          } else if (index == cooks.length + 1) {
+            return Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ListFooter(),
+            );
+          } else {
+            return Padding(
+              padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+              child: CookContent(item: cooks[index - 1]),
+            );
+          }
+        });
+  }
+}
+
+class CupertinoList extends StatelessWidget {
+  final List<CookItem> cooks = [
+    CupertinoActionSheetItem(),
+    CupertinoContextMenuDemo()
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: cooks.length + 2,
+        itemBuilder: (context, index) {
+          if (index == 0) {
+            return Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ListTitle(),
+            );
+          } else if (index == cooks.length + 1) {
+            return Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ListFooter(),
+            );
+          } else {
+            return Padding(
+              padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+              child: CookContent(item: cooks[index - 1]),
+            );
+          }
+        });
   }
 }
 
