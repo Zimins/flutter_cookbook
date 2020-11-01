@@ -87,7 +87,6 @@ class _MyHomePageState extends State<MyHomePage> {
               showAboutDialog(
                   context: context,
                   applicationName: "Flutter Cookbook",
-                  applicationVersion: "1.0.6",
                   applicationLegalese: "Project for flutter learners",
                   children: [
                     OutlineButton(
