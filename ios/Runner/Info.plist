@@ -10,6 +10,8 @@
 	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app needs Photo Library usage.</string>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-6763874036478749~2517766837</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
