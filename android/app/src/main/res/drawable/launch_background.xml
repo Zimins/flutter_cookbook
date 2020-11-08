@@ -8,5 +8,5 @@
         <bitmap
             android:gravity="center"
             android:src="@drawable/cookbook_splash" />
-    </item> -->
+    </item>
 </layer-list>
