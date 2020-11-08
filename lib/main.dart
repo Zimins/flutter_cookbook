@@ -37,6 +37,17 @@ String getInterstitialAdUnitId() {
   return null;
 }
 
+String getBannerAdId() {
+  if (Platform.isAndroid) {
+    return 'ca-app-pub-6763874036478749/8689451189';
+  } else if (Platform.isIOS) {
+    return 'ca-app-pub-6763874036478749/6554242437';
+  }
+  return null;
+}
+
+var aboutBannerIDAndroid = 'ca-app-pub-6763874036478749/8689451189';
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -85,39 +96,10 @@ class _MyHomePageState extends State<MyHomePage> {
           setState(() {
             if (position == 2) {
               showAboutDialog(
-                  context: context,
-                  applicationName: "Flutter Cookbook",
-                  applicationLegalese: "Project for flutter learners",
-                  children: [
-                    OutlineButton(
-                      child: Text("Donate by Ads"),
-                      onPressed: () async {
-                        if (Platform.isAndroid) {
-                          interstitialAd.show();
-                        } else if (Platform.isIOS) {
-                          if (await Admob.requestTrackingAuthorization()) {
-                            interstitialAd.show();
-                          } else {
-                            showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return AlertDialog(
-                                    content: Text("Ad needs permission"),
-                                  );
-                                });
-                          }
-                        } else {
-                          showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  content: Text("This is unsupported platform"),
-                                );
-                              });
-                        }
-                      },
-                    )
-                  ]);
+                context: context,
+                applicationName: "Flutter Cookbook",
+                applicationLegalese: "Project for flutter learners",
+              );
             } else {
               tabIndex = position;
             }
@@ -260,7 +242,14 @@ class ListFooter extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 24),
+              child: AdmobBanner(
+                adUnitId: getBannerAdId(),
+                adSize: AdmobBannerSize.FULL_BANNER,
+              ),
+            ),
           ],
         ),
       ),
