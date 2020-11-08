@@ -91,8 +91,30 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     OutlineButton(
                       child: Text("Donate by Ads"),
-                      onPressed: () {
-                        interstitialAd.show();
+                      onPressed: () async {
+                        if (Platform.isAndroid) {
+                          interstitialAd.show();
+                        } else if (Platform.isIOS) {
+                          if (await Admob.requestTrackingAuthorization()) {
+                            interstitialAd.show();
+                          } else {
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    content: Text("Ad needs permission"),
+                                  );
+                                });
+                          }
+                        } else {
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  content: Text("This is unsupported platform"),
+                                );
+                              });
+                        }
                       },
                     )
                   ]);

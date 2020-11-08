@@ -12,6 +12,10 @@
 	<string>This app needs Photo Library usage.</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-6763874036478749~2517766837</string>
+	<key>io.flutter.embedded_views_preview</key>
+	<true/>
+	<key>NSUserTrackingUsageDescription</key>
+    <string>This identifier will be used to deliver personalized ads to you.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
