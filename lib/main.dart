@@ -30,7 +30,7 @@ void main() {
 
 String getInterstitialAdUnitId() {
   if (Platform.isIOS) {
-    return null;
+    return 'ca-app-pub-6763874036478749/4545164378';
   } else if (Platform.isAndroid) {
     return 'ca-app-pub-6763874036478749/3091244805';
   }
@@ -42,6 +42,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -86,13 +87,34 @@ class _MyHomePageState extends State<MyHomePage> {
               showAboutDialog(
                   context: context,
                   applicationName: "Flutter Cookbook",
-                  applicationVersion: "1.0.6",
                   applicationLegalese: "Project for flutter learners",
                   children: [
                     OutlineButton(
                       child: Text("Donate by Ads"),
-                      onPressed: () {
-                        interstitialAd.show();
+                      onPressed: () async {
+                        if (Platform.isAndroid) {
+                          interstitialAd.show();
+                        } else if (Platform.isIOS) {
+                          if (await Admob.requestTrackingAuthorization()) {
+                            interstitialAd.show();
+                          } else {
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    content: Text("Ad needs permission"),
+                                  );
+                                });
+                          }
+                        } else {
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  content: Text("This is unsupported platform"),
+                                );
+                              });
+                        }
                       },
                     )
                   ]);
