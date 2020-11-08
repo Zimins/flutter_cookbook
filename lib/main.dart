@@ -261,10 +261,19 @@ class ListFooter extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 24),
-              child: AdmobBanner(
-                adUnitId: getBannerAdId(),
-                adSize: AdmobBannerSize.FULL_BANNER,
-              ),
+              child: FutureBuilder<bool>(
+                  initialData: false,
+                  future: Admob.requestTrackingAuthorization(),
+                  builder: (context, snapshot) {
+                    if (snapshot.data) {
+                      return AdmobBanner(
+                        adUnitId: getBannerAdId(),
+                        adSize: AdmobBannerSize.FULL_BANNER,
+                      );
+                    } else {
+                      return Container();
+                    }
+                  }),
             ),
           ],
         ),

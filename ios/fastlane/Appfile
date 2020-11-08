@@ -1,0 +1,8 @@
+app_identifier("com.zapps.flutterCookbook") # The bundle identifier of your app
+apple_id("wlals822@naver.com") # Your Apple email address
+
+itc_team_id("121657374") # App Store Connect Team ID
+team_id("H66C2M66DC") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
