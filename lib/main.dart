@@ -19,6 +19,7 @@ import 'package:flutter_cookbook/contents/stepper.dart';
 import 'package:flutter_cookbook/contents/texts.dart';
 import 'package:flutter_cookbook/webLauncher.dart';
 
+import 'contents/cupertino/CupertinoDatePickerItem.dart';
 import 'contents/navigationRail.dart';
 import 'contents/slider.dart';
 
@@ -184,7 +185,8 @@ class MaterialList extends StatelessWidget {
 class CupertinoList extends StatelessWidget {
   final List<CookItem> cooks = [
     CupertinoActionSheetItem(),
-    CupertinoContextMenuDemo()
+    CupertinoContextMenuDemo(),
+    CupertinoDatePickerItem(),
   ];
 
   @override
