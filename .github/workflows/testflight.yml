@@ -3,8 +3,8 @@ name: Testflight upload
 # reference
 # https://medium.com/flutter-community/deploying-flutter-ios-apps-with-fastlane-and-github-actions-2e87465e056e:
 on:
-  release:
-    types: [published]
+  push:
+    branches: [master]
 
 jobs:
   deploy:
