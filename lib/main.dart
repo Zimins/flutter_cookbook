@@ -96,10 +96,24 @@ class _MyHomePageState extends State<MyHomePage> {
           setState(() {
             if (position == 2) {
               showAboutDialog(
-                context: context,
-                applicationName: "Flutter Cookbook",
-                applicationLegalese: "Project for flutter learners",
-              );
+                  context: context,
+                  applicationIcon: Image.asset(
+                    "assets/launcher/fullicon.png",
+                    width: 50,
+                    height: 50,
+                    fit: BoxFit.fitHeight,
+                  ),
+                  applicationName: "Flutter Cookbook",
+                  applicationLegalese: "Project for flutter learners. ",
+                  children: [
+                    OutlineButton(
+                      child: Text("View on Github"),
+                      onPressed: () {
+                        showBrowser(
+                            "https://www.github.com/wlals822/flutter_cookbook");
+                      },
+                    )
+                  ]);
             } else {
               tabIndex = position;
             }
@@ -236,11 +250,11 @@ class ListFooter extends StatelessWidget {
                     "https://www.github.com/wlals822/flutter_cookbook");
               },
               child: Text(
-                "or request by github",
+                "or request new feature",
                 style: TextStyle(
-                  fontSize: Theme.of(context).textTheme.subtitle1.fontSize,
-                  color: Colors.white,
-                ),
+                    fontSize: Theme.of(context).textTheme.subtitle1.fontSize,
+                    color: Colors.white,
+                    decoration: TextDecoration.underline),
               ),
             ),
             Padding(
