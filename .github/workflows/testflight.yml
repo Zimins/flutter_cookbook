@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy:
-    runs_on: macos-lastet
+    runs-on: macos-lastet
 
     steps:
       - uses: actions/checkout@v2
