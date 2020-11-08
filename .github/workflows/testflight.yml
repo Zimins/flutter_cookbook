@@ -1,0 +1,60 @@
+name: Testflight upload
+
+# reference
+# https://medium.com/flutter-community/deploying-flutter-ios-apps-with-fastlane-and-github-actions-2e87465e056e:
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy:
+    runs_on: macos-lastet
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Select Xcode version
+          run: sudo xcode-select -s '/Applications/Xcode_12.0.app/Contents/Developer'
+      - name: Bundle install
+          run: cd ./ios && bundle install
+      - name: Setup JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: "12.x"
+      - name: Setup flutter
+        uses: subosito/flutter-action@v1
+        with:
+          flutter-version: "1.22.2"
+          channel: "stable"
+      - name: Install tools
+        run: |
+          flutter pub get
+          cd ./ios && pod install
+      - name: Setup SSH Keys and known_hosts for fastlane match
+        run: |
+          SSH_PATH="$HOME/.ssh"
+          mkdir -p "$SSH_PATH"
+          touch "$SSH_PATH/known_hosts"
+          echo "$PRIVATE_KEY" > "$SSH_PATH/id_rsa"
+          chmod 700 "$SSH_PATH"
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          chmod 600 "$SSH_PATH/known_hosts"
+          chmod 600 "$SSH_PATH/id_rsa"
+          eval $(ssh-agent)
+          ssh-add "$SSH_PATH/id_rsa"
+        env:
+          PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_APPSTORE }}
+
+      - name: Deploy to TestFlight
+        run: |
+          cd ./ios && bundle exec fastlane beta
+        env:
+          TEAM_ID: ${{ secrets.APPSTORE_TEAM_ID }}
+          ITC_TEAM_ID: ${{ secrets.APPSTORE_ITC_TEAM_ID }}
+          FASTLANE_USER: ${{ secrets.APPSTORE_FASTLANE_USER }}
+          FASTLANE_PASSWORD: ${{ secrets.APPSTORE_FASTLANE_PASSWORD }}
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.APPSTORE_FASTLANE_APPLICATION_SPECIFIC_PASSWORD }}
+          FASTLANE_SESSION: ${{ secrets.APPSTORE_FASTLANE_SESSION }}
+          MATCH_PASSWORD: ${{ secrets.APPSTORE_MATCH_PASSWORD }}
+          MATCH_KEYCHAIN_NAME: ${{ secrets.APPSTORE_MATCH_KEYCHAIN_NAME }}
+          MATCH_KEYCHAIN_PASSWORD: ${{ secrets.APPSTORE_MATCH_KEYCHAIN_PASSWORD }}
+
