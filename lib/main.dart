@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cookbook/contents/advanced/riveDemo.dart';
 import 'package:flutter_cookbook/contents/animations.dart';
 import 'package:flutter_cookbook/contents/bottomNavbar.dart';
 import 'package:flutter_cookbook/contents/bottomSheet.dart';
@@ -50,7 +51,6 @@ String getBannerAdId() {
 var aboutBannerIDAndroid = 'ca-app-pub-6763874036478749/8689451189';
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -88,14 +88,29 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    Widget menuList;
+
+    switch (tabIndex) {
+      case 0:
+        menuList = MaterialList();
+        break;
+      case 1:
+        menuList = CupertinoList();
+        break;
+      case 2:
+        menuList = AdvancedList();
+        break;
+    }
     return Scaffold(
       body: Container(
-          color: Color.fromARGB(255, 15, 76, 129),
-          child: tabIndex == 0 ? MaterialList() : CupertinoList()),
+        color: Color.fromARGB(255, 15, 76, 129),
+        child: menuList,
+      ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         onTap: (position) {
           setState(() {
-            if (position == 2) {
+            if (position == 3) {
               showAboutDialog(
                   context: context,
                   applicationIcon: Image.asset(
@@ -124,15 +139,19 @@ class _MyHomePageState extends State<MyHomePage> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.accessibility),
-            title: Text("Material"),
+            label: "Material",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.apps),
-            title: Text("Cupertio"),
+            label: "Cupertino",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.auto_awesome),
+            label: "Advanced",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings_applications),
-            title: Text("About"),
+            label: "Abort",
           ),
         ],
       ),
@@ -187,6 +206,36 @@ class CupertinoList extends StatelessWidget {
     CupertinoActionSheetItem(),
     CupertinoContextMenuDemo(),
     CupertinoDatePickerItem(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: cooks.length + 2,
+        itemBuilder: (context, index) {
+          if (index == 0) {
+            return Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ListTitle(),
+            );
+          } else if (index == cooks.length + 1) {
+            return Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ListFooter(),
+            );
+          } else {
+            return Padding(
+              padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+              child: CookContent(item: cooks[index - 1]),
+            );
+          }
+        });
+  }
+}
+
+class AdvancedList extends StatelessWidget {
+  final List<CookItem> cooks = [
+    RiveItem(),
   ];
 
   @override
