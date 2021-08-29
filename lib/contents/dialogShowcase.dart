@@ -35,17 +35,19 @@ class _AlertDialogShowcase extends StatelessWidget {
                 onPressed: () {
                   showDialog(
                       context: context,
-                      child: AlertDialog(
-                        title: Text("Demo materialDialog"),
-                        content: Text("You can use Wiget as content."),
-                        actions: <Widget>[
-                          FlatButton(
-                              child: Text("Confirm"),
-                              onPressed: () {
-                                Navigator.pop(context, null);
-                              }),
-                        ],
-                      ));
+                      builder: (context) {
+                        return AlertDialog(
+                          title: Text("Demo materialDialog"),
+                          content: Text("You can use Wiget as content."),
+                          actions: <Widget>[
+                            FlatButton(
+                                child: Text("Confirm"),
+                                onPressed: () {
+                                  Navigator.pop(context, null);
+                                }),
+                          ],
+                        );
+                      });
                 },
               ),
               RaisedButton(
