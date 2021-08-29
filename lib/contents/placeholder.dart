@@ -32,7 +32,7 @@ class _PlaceHolderPage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 "Draw future layout with PlaceHolder",
-                style: Theme.of(context).textTheme.display2,
+                style: Theme.of(context).textTheme.headline3,
               ),
             ),
             Row(

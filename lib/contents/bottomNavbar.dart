@@ -78,14 +78,11 @@ class CustomNavigationBar extends StatelessWidget {
       builder: (context, value, child) {
         return BottomNavigationBar(
           items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
+            BottomNavigationBarItem(icon: Icon(Icons.alarm), label: "time"),
+            BottomNavigationBarItem(icon: Icon(Icons.memory), label: "memory"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.home), title: Text("home")),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.alarm), title: Text("time")),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.memory), title: Text("memory")),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.move_to_inbox), title: Text("Inbox")),
+                icon: Icon(Icons.move_to_inbox), label: "Inbox"),
           ],
           showUnselectedLabels: value.showUnSelected,
           currentIndex: value.currentIndex,

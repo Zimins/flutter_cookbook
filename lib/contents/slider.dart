@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_cookbook/githubWidget.dart';
-import 'package:flutter_cookbook/webLauncher.dart';
 
 import 'contentlist.dart';
 

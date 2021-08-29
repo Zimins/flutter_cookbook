@@ -1,10 +1,9 @@
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 
 import '../githubWidget.dart';
 import 'contentlist.dart';
@@ -130,7 +129,7 @@ class RemoveItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16),
-      child: OutlineButton(
+      child: OutlinedButton(
         child: Text("Remove word"),
         onPressed: () async {
           Provider.of<WordsNotifier>(context, listen: false).removeItem();
@@ -149,7 +148,7 @@ class AddItemButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16),
-      child: OutlineButton(
+      child: OutlinedButton(
         child: Text("Add random word"),
         onPressed: () async {
           final word = await Provider.of<RandomWordRepo>(context, listen: false)

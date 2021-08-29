@@ -28,15 +28,15 @@ class _ButtonsPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            RaisedButton(
+            ElevatedButton(
               child: Text("Raised Button"),
               onPressed: () {},
             ),
-            FlatButton(
+            TextButton(
               child: Text("Flat Button"),
               onPressed: () {},
             ),
-            OutlineButton(
+            OutlinedButton(
               child: Text("Outline Button"),
               onPressed: () {},
             ),

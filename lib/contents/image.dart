@@ -58,7 +58,7 @@ class _ImagePageState extends State<ImagePage> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: FlatButton(
+              child: TextButton(
                 child: Text("Pick image from device"),
                 onPressed: () {
                   getImage();

@@ -60,7 +60,7 @@ class _NavigationRailPageState extends State<NavigationRailPage> {
               NavigationRailDestination(
                   icon: Icon(Icons.book), label: Text("Some audiobook")),
             ],
-            trailing: OutlineButton(
+            trailing: OutlinedButton(
               child: Text("Toggle rail"),
               onPressed: () {
                 setState(() {

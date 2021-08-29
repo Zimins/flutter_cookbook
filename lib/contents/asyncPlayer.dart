@@ -8,13 +8,8 @@ class AsyncDemo implements CookItem {
 
   @override
   void onSelect(BuildContext context) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) {}));
-  }
-}
-
-class _AsyncPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return null;
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return Container();
+    }));
   }
 }

@@ -122,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   applicationName: "Flutter Cookbook",
                   applicationLegalese: "Project for flutter learners. ",
                   children: [
-                    OutlineButton(
+                    OutlinedButton(
                       child: Text("View on Github"),
                       onPressed: () {
                         showBrowser(
@@ -271,7 +271,7 @@ class ListTitle extends StatelessWidget {
       child: Text(
         "Flutter cookbook🍳",
         style: TextStyle(
-            fontSize: Theme.of(context).textTheme.display2.fontSize,
+            fontSize: Theme.of(context).textTheme.headline3.fontSize,
             color: Colors.white),
       ),
     );
@@ -348,7 +348,7 @@ class CookContent extends StatelessWidget {
           padding: EdgeInsets.fromLTRB(8, 10, 8, 10),
           child: Text(
             item.title,
-            style: Theme.of(context).textTheme.display1,
+            style: Theme.of(context).textTheme.headline4,
           ),
         ),
       ),

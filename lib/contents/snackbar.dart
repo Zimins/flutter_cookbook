@@ -17,7 +17,12 @@ class SnacbarDemo implements CookItem {
   }
 }
 
-class _SnackbarPage extends StatelessWidget {
+class _SnackbarPage extends StatefulWidget {
+  @override
+  __SnackbarPageState createState() => __SnackbarPageState();
+}
+
+class __SnackbarPageState extends State<_SnackbarPage> {
   final messageInputController = TextEditingController();
 
   Color selectedColor = Colors.blue;
@@ -49,36 +54,40 @@ class _SnackbarPage extends StatelessWidget {
             ),
             Builder(
               builder: (context) {
-                return FlatButton(
+                return TextButton(
                   child: Text("Show Toast"),
                   onPressed: () {
-                    Scaffold.of(context).showSnackBar(SnackBar(
-                      backgroundColor: selectedColor,
-                      content: Text(getInput()),
-                    ));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        backgroundColor: selectedColor,
+                        content: Text(getInput()),
+                      ),
+                    );
                   },
                 );
               },
             ),
             Builder(
               builder: (context) {
-                return FlatButton(
+                return TextButton(
                   child: Text("Show Link Toast"),
                   onPressed: () {
-                    Scaffold.of(context).showSnackBar(SnackBar(
-                      backgroundColor: selectedColor,
-                      action: SnackBarAction(
-                          label: "Go to google",
-                          onPressed: () async {
-                            await showBrowser("https://www.google.com");
-                          }),
-                      content: Text(getInput()),
-                    ));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          backgroundColor: selectedColor,
+                          action: SnackBarAction(
+                              label: "Go to google",
+                              onPressed: () async {
+                                await showBrowser("https://www.google.com");
+                              }),
+                          content: Text(getInput()),
+                        ),
+                    );
                   },
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text("Change snackbar color"),
               onPressed: () {
                 showDialog(
@@ -91,14 +100,16 @@ class _SnackbarPage extends StatelessWidget {
                       },
                     ),
                     actions: <Widget>[
-                      FlatButton(
+                      TextButton(
                         child: Text("Confirm"),
                         onPressed: () {
                           Navigator.of(context).pop();
-                          Scaffold.of(context).showSnackBar(SnackBar(
-                            content: Text("Color changed!"),
-                            backgroundColor: selectedColor,
-                          ));
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text("Color changed!"),
+                                backgroundColor: selectedColor,
+                              ),
+                          );
                         },
                       )
                     ],

@@ -125,7 +125,7 @@ class __RiveDemoPageState extends State<_RiveDemoPage> {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: OutlineButton(
+            child: OutlinedButton(
               onPressed: () {
                 if (!isRocketDoorOpen) {
                   _openDoor(true);
@@ -142,7 +142,7 @@ class __RiveDemoPageState extends State<_RiveDemoPage> {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: OutlineButton(
+            child: OutlinedButton(
               onPressed: () {
                 _activeFire();
               },

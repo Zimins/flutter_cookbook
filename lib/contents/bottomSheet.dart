@@ -33,7 +33,7 @@ class _BottomSheetPage extends StatelessWidget {
           children: <Widget>[
             Builder(
               builder: (context) {
-                return OutlineButton(
+                return OutlinedButton(
                   child: Text("Show Persistance bottom sheet"),
                   onPressed: () {
                     showBottomSheet(
@@ -46,7 +46,8 @@ class _BottomSheetPage extends StatelessWidget {
                                 children: <Widget>[
                                   Text(
                                     "Persistance Bottom sheet",
-                                    style: Theme.of(context).textTheme.title,
+                                    style:
+                                        Theme.of(context).textTheme.headline6,
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
@@ -61,7 +62,7 @@ class _BottomSheetPage extends StatelessWidget {
                 );
               },
             ),
-            OutlineButton(
+            OutlinedButton(
               child: Text("Show Modal bottom sheet"),
               onPressed: () {
                 showModalBottomSheet(
@@ -78,7 +79,7 @@ class _BottomSheetPage extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               "Modal BottomSheet",
-                              style: Theme.of(context).textTheme.title,
+                              style: Theme.of(context).textTheme.headline6,
                             ),
                           ),
                           Padding(
@@ -90,7 +91,7 @@ class _BottomSheetPage extends StatelessWidget {
                     });
               },
             ),
-            OutlineButton(
+            OutlinedButton(
               child: Text("Show Modal bottom sheet, Circle border"),
               onPressed: () {
                 showModalBottomSheet(
@@ -103,7 +104,7 @@ class _BottomSheetPage extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               "Modal BottomSheet",
-                              style: Theme.of(context).textTheme.title,
+                              style: Theme.of(context).textTheme.headline6,
                             ),
                           ),
                           Padding(

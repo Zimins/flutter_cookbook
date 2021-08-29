@@ -105,9 +105,11 @@ class _FlutterLeanStepperState extends State<_FlutterLearnStepper> {
           if (currentStep < steps.length - 1) {
             currentStep += 1;
           } else {
-            Scaffold.of(context).showSnackBar(SnackBar(
-              content: Text("Step Completed!"),
-            ));
+            ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text("Step Completed!"),
+                ),
+            );
           }
         });
       },

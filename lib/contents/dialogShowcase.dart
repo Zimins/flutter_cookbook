@@ -30,7 +30,7 @@ class _AlertDialogShowcase extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              RaisedButton(
+              ElevatedButton(
                 child: Text("Show material dialog"),
                 onPressed: () {
                   showDialog(
@@ -40,7 +40,7 @@ class _AlertDialogShowcase extends StatelessWidget {
                           title: Text("Demo materialDialog"),
                           content: Text("You can use Wiget as content."),
                           actions: <Widget>[
-                            FlatButton(
+                            TextButton(
                                 child: Text("Confirm"),
                                 onPressed: () {
                                   Navigator.pop(context, null);
@@ -50,7 +50,7 @@ class _AlertDialogShowcase extends StatelessWidget {
                       });
                 },
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text("Show Cupertino Dialog"),
                 onPressed: () {
                   showCupertinoDialog(
@@ -60,7 +60,7 @@ class _AlertDialogShowcase extends StatelessWidget {
                           title: Text("iOS Dialog"),
                           content: Text("How about this?"),
                           actions: <Widget>[
-                            FlatButton(
+                            TextButton(
                               child: Text("Close"),
                               onPressed: () {
                                 Navigator.pop(context);
