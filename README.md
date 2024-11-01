@@ -4,7 +4,7 @@ Flutter cookbook app
 
 Play store: Uploading now
 App store: Uploading  
-You can view web build by here: https://wlals822.github.io/flutter_cookbook/
+You can view web build by here: [https://wlals822.github.io/flutter_cookbook/](https://zimins.github.io/flutter_cookbook/#/)
 
 Its a Flutter example app. 
 
